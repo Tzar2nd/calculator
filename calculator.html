@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+    background-color: #EEEEEE;
+}
+
+.outer-container {
+    margin: 1rem 0;
+}
+.calculator-container {
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: .4rem .4rem 1rem 0rem rgba(0, 0, 0, 0.6);
+    margin: auto;
+    background-color: #AAAAAA;
+    max-width: 350px;
+    height: 500px;
+}
+
+.formula {
+    grid-area: formula;
+    width: 100%;
+    text-align: right;
+    background-color: green;
+}
+
+.result{
+    grid-area: result;
+    width: 100%;
+    text-align: right;
+    background-color: purple;
+}
+
+.button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+}
+
+.calc-display {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid #000;
+    place-items: center;
+    grid-gap: .5rem;
+    height: auto;
+    width: auto;
+    grid-template-areas: 
+    "formula formula formula formula"
+    "result result result result"
+}
+
+</style>
+</head>
+<body>
+    <div class='outer-container'>
+        <div class="calculator-container">
+            <div class="calc-display">
+                <div class="formula" type="text" id="user-formula">1 + 1 + 2 - 3</div>
+                <div class="result" type="text" id="result">500</div>
+                <button class="button">7</button>
+                <button class="button">8</button>
+                <button class="button">9</button>
+                <button class="button">+</button>
+                <button class="button">4</button>
+                <button class="button">5</button>
+                <button class="button">6</button>
+                <button class="button">-</button>
+                <button class="button">1</button>
+                <button class="button">2</button>
+                <button class="button">3</button>
+                <button class="button">X</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="calculator.js"></script>
+</html>
