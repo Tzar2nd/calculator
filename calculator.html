@@ -3,77 +3,118 @@
 <head>
 <style>
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: #EEEEEE;
+    font: 16px Sans-Serif;
+    box-sizing: border-box;
+    background: rgb(255,255,255);
+    background: linear-gradient(342deg, rgba(255,255,255,1) 0%, rgba(24,24,24,1) 46%, rgba(255,169,0,1) 100%);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .outer-container {
     margin: 1rem 0;
 }
-.calculator-container {
+.calc-container {
     align-items: center;
     border-radius: 1rem;
     box-shadow: .4rem .4rem 1rem 0rem rgba(0, 0, 0, 0.6);
     margin: auto;
-    background-color: #AAAAAA;
-    max-width: 350px;
-    height: 500px;
-}
-
-.formula {
-    grid-area: formula;
-    width: 100%;
-    text-align: right;
-    background-color: green;
-}
-
-.result{
-    grid-area: result;
-    width: 100%;
-    text-align: right;
-    background-color: purple;
-}
-
-.button {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 1rem;
+    background-color: hsl(0, 0%, 67%);
+    max-width: 300px;
+    padding: 0.1rem;
 }
 
 .calc-display {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff; 
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5%;
+    box-shadow: inset -.1rem .2rem .3rem .1rem rgba(0, 0, 0, 0.6);
+}
+
+.formula {
+    text-align: right;
+    font: 18px Arial;
+}
+
+.result{
+    text-align: right;
+    font: 18px Arial;
+}
+
+.button {
+    border-radius: 5%;
+    font: 20px Arial;
+    outline: none; 
+    cursor: pointer;
+    background: grey;
+    border: 1px solid black;
+    padding: 1rem;
+    box-shadow: .3rem .3rem .4rem 0px rgb(0 0 0 / 40%);
+    transition: all .05s ease-in-out;
+}
+
+.button:hover {
+    box-shadow: .3rem .3rem 0 0px rgb(0 0 0 / 40%);
+    transform: scale(1.05);
+}
+
+.calc-body {
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(4, 1fr);
-    border: 1px solid #000;
-    place-items: center;
     grid-gap: .5rem;
-    height: auto;
-    width: auto;
-    grid-template-areas: 
-    "formula formula formula formula"
-    "result result result result"
+    padding: 0 1rem 1rem 1rem;
+    height: 100%;
+    grid-template-areas:
+        "clear clear backspace backspace"
+}
+
+.clear {
+    grid-area: clear;
+}
+
+.backspace {
+    grid-area: backspace;
 }
 
 </style>
 </head>
 <body>
     <div class='outer-container'>
-        <div class="calculator-container">
+        <div class="calc-container">
             <div class="calc-display">
-                <div class="formula" type="text" id="user-formula">1 + 1 + 2 - 3</div>
-                <div class="result" type="text" id="result">500</div>
-                <button class="button">7</button>
-                <button class="button">8</button>
-                <button class="button">9</button>
-                <button class="button">+</button>
-                <button class="button">4</button>
-                <button class="button">5</button>
-                <button class="button">6</button>
-                <button class="button">-</button>
-                <button class="button">1</button>
-                <button class="button">2</button>
-                <button class="button">3</button>
-                <button class="button">X</button>
+                <div class="formula" type="text" id="user-formula">&nbsp</div>
+                <div class="result" type="text" id="user-result">&nbsp</div>
+            </div>
+            <div class="calc-body">
+                <button class="button clear">CLR</button>
+                <button class="button backspace">Backspace</button>
+                <button class="button number">7</button>
+                <button class="button number">8</button>
+                <button class="button number">9</button>
+                <button class="button operator">÷</button>
+                <button class="button number">4</button>
+                <button class="button number">5</button>
+                <button class="button number">6</button>
+                <button class="button operator">x</button>
+                <button class="button number">1</button>
+                <button class="button number">2</button>
+                <button class="button number">3</button>
+                <button class="button operator">-</button>
+                <button class="button number">0</button>
+                <button class="button operator">.</button>
+                <button class="button equals">=</button>
+                <button class="button operator">+</button>
             </div>
         </div>
     </div>
